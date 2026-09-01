@@ -1,6 +1,6 @@
 
 ROOTKIT: ZERO Visual & Audio Assets
-Copyright (c) 2026 divatra
+Copyright © 2026 divatra
 
 Licensed under Creative Commons Attribution-ShareAlike 4.0 International.
 Full text below:
