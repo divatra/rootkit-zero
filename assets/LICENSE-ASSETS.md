@@ -1,9 +1,19 @@
+====================================================================
+ROOTKIT: ZERO — Asset License
+Copyright © 2026 d1vatra
+====================================================================
 
-ROOTKIT: ZERO Visual & Audio Assets
-Copyright © 2026 divatra
+All visual, audio, and creative media assets in this repository 
+(including graphics, textures, sprites, UI elements, audio files, 
+3D models, and lore documents) are licensed under the Creative Commons 
+Attribution-ShareAlike 4.0 International License.
 
-Licensed under Creative Commons Attribution-ShareAlike 4.0 International.
-Full text below:
+To view a copy of this license, visit:
+https://creativecommons.org/licenses/by-sa/4.0/
+
+====================================================================
+FULL LICENSE TEXT
+====================================================================
 
 Attribution-ShareAlike 4.0 International
 
