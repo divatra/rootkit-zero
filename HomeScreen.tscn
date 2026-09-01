@@ -1,0 +1,181 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/backdrop.png" type="Texture" id=1]
+[ext_resource path="res://assets/logo_thumb.png" type="Texture" id=2]
+[ext_resource path="res://assets/Fluctuation Lt.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Menu Center.gd" type="Script" id=4]
+[ext_resource path="res://assets/0.png" type="Texture" id=5]
+[ext_resource path="res://assets/1.png" type="Texture" id=6]
+[ext_resource path="res://assets/rootkitUI.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 2
+emission_box_extents = Vector3( 960, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+outline_size = 1
+outline_color = Color( 0.431373, 0.0352941, 0.0352941, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 7 )
+
+[node name="HomeScreen" type="CanvasLayer"]
+
+[node name="bg" type="TextureRect" parent="."]
+modulate = Color( 0.592157, 0.592157, 0.592157, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 960, 0 )
+amount = 100
+lifetime = 4.0
+process_material = SubResource( 9 )
+texture = ExtResource( 5 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 960, 0 )
+amount = 100
+lifetime = 4.0
+process_material = SubResource( 9 )
+texture = ExtResource( 6 )
+
+[node name="TopMargin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_top = 100.0
+
+[node name="CenterContainer" type="CenterContainer" parent="TopMargin"]
+margin_right = 1920.0
+margin_bottom = 266.0
+
+[node name="Logo" type="TextureRect" parent="TopMargin/CenterContainer"]
+margin_left = 492.0
+margin_right = 1428.0
+margin_bottom = 266.0
+texture = ExtResource( 2 )
+
+[node name="Menu Center" type="CenterContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_top = -690.0
+margin_bottom = -215.0
+script = ExtResource( 4 )
+
+[node name="Menu" type="VBoxContainer" parent="Menu Center"]
+margin_left = 805.0
+margin_top = 99.0
+margin_right = 1125.0
+margin_bottom = 375.0
+theme = SubResource( 2 )
+custom_constants/separation = 12
+
+[node name="Button1" type="Button" parent="Menu Center/Menu"]
+margin_right = 320.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 320, 60 )
+custom_colors/font_color = Color( 0.00392157, 1, 0.984314, 1 )
+custom_colors/font_color_hover = Color( 0.564706, 0.909804, 0.0823529, 1 )
+custom_colors/font_color_pressed = Color( 0.443137, 0.705882, 0.0705882, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "PLAY CAMPAIGN"
+
+[node name="Button2" type="Button" parent="Menu Center/Menu"]
+margin_top = 72.0
+margin_right = 320.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 320, 60 )
+custom_colors/font_color = Color( 0.00392157, 1, 0.984314, 1 )
+custom_colors/font_color_hover = Color( 0.564706, 0.909804, 0.0823529, 1 )
+custom_colors/font_color_pressed = Color( 0.443137, 0.705882, 0.0705882, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "PLAY CAMPAIGN"
+
+[node name="Button3" type="Button" parent="Menu Center/Menu"]
+margin_top = 144.0
+margin_right = 320.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 320, 60 )
+custom_colors/font_color = Color( 0.00392157, 1, 0.984314, 1 )
+custom_colors/font_color_hover = Color( 0.564706, 0.909804, 0.0823529, 1 )
+custom_colors/font_color_pressed = Color( 0.443137, 0.705882, 0.0705882, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "PLAY CAMPAIGN"
+
+[node name="Button4" type="Button" parent="Menu Center/Menu"]
+margin_top = 216.0
+margin_right = 320.0
+margin_bottom = 276.0
+rect_min_size = Vector2( 320, 60 )
+custom_colors/font_color = Color( 0.00392157, 1, 0.984314, 1 )
+custom_colors/font_color_hover = Color( 0.564706, 0.909804, 0.0823529, 1 )
+custom_colors/font_color_pressed = Color( 0.443137, 0.705882, 0.0705882, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "PLAY CAMPAIGN"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -500.0
+margin_top = -50.0
+margin_right = -10.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_top = 12.0
+margin_right = 490.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 10 )
+text = "ZERO.exe Build 0.01 // Author: divatra"
+align = 2
+uppercase = true

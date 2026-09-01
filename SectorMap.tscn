@@ -1,0 +1,151 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/Iceland-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/void.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/new_styleboxflat.tres" type="StyleBox" id=3]
+[ext_resource path="res://assets/rootkitUI.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/buttonfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/buttontheme.tres" type="StyleBox" id=6]
+[ext_resource path="res://SectorMap.gd" type="Script" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.627451 )
+corner_radius_top_left = 15
+corner_radius_top_right = 1
+corner_radius_bottom_left = 15
+shadow_color = Color( 0.662745, 0.290196, 0.290196, 0.490196 )
+shadow_size = 15
+
+[sub_resource type="DynamicFont" id=5]
+size = 49
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 21
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0.945098, 1, 0.996078, 0.6 )
+shadow_size = 2
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.196078, 0.188235, 0.188235, 0.47451 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.196078, 0.188235, 0.188235, 0.47451 )
+
+[node name="SectorMap" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 7 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 3848.0
+margin_bottom = 2288.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="LinesContainer" type="Node2D" parent="."]
+position = Vector2( 616, 463 )
+
+[node name="NodesContainer" type="Control" parent="."]
+margin_top = 5.0
+margin_right = 1917.0
+margin_bottom = 1076.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InfoPanel" type="Panel" parent="UI"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -321.0
+margin_top = -183.0
+margin_bottom = 183.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="TitleLabel" type="Label" parent="UI/InfoPanel"]
+anchor_right = 1.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 5 )
+text = "Boot Sector"
+align = 1
+valign = 2
+
+[node name="CodeLabel" type="Label" parent="UI/InfoPanel"]
+anchor_right = 1.0
+margin_left = -1.0
+margin_top = 70.0
+margin_right = -1.0
+margin_bottom = 110.0
+custom_colors/font_color = Color( 0.756863, 0.756863, 0.756863, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "S_BIOS_BOOT"
+align = 1
+
+[node name="Corrupt" type="Button" parent="UI/InfoPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -104.5
+margin_top = -83.0
+margin_right = 104.5
+margin_bottom = -29.0
+custom_colors/font_color_hover_pressed = Color( 0.823529, 1, 0.478431, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.788235, 0.807843, 0.576471, 1 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "CORRUPT"
+
+[node name="ThreatLabel" type="RichTextLabel" parent="UI/InfoPanel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -58.0
+margin_bottom = -19.0
+custom_fonts/bold_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[color=red][center][b]Aggresive[/b][/center][/color]"
+text = "Aggresive"
+
+[node name="Header" type="Panel" parent="UI"]
+anchor_right = 1.0
+margin_bottom = 76.0
+custom_styles/panel = SubResource( 8 )
+
+[node name="BackButton" type="Button" parent="UI/Header"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -26.0
+margin_right = 231.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+text = "< Return"
+
+[node name="Footer" type="Panel" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -69.0
+margin_bottom = 7.0
+custom_styles/panel = SubResource( 9 )
