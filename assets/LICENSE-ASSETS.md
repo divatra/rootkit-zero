@@ -1,6 +1,6 @@
 ====================================================================
 ROOTKIT: ZERO — Asset License
-Copyright © 2026 d1vatra
+Copyright © 2026 divatra
 ====================================================================
 
 All visual, audio, and creative media assets in this repository 
