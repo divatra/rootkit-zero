@@ -1,0 +1,8 @@
+# Godot 3.6 Import and Cache Files
+.import/
+export_presets.cfg
+
+# System / OS Files
+.DS_Store
+Thumbs.db
+*.tmp
