@@ -8,9 +8,128 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "ChatMessage",
+"language": "GDScript",
+"path": "res://addons/discord_game_sdk/example/lobby/chat_message.gd"
+}, {
+"base": "",
+"class": "DiscordActivity",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity.gdns"
+}, {
+"base": "",
+"class": "DiscordActivityAssets",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_assets.gdns"
+}, {
+"base": "",
+"class": "DiscordActivityManager",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_manager.gdns"
+}, {
+"base": "",
+"class": "DiscordActivityParty",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_party.gdns"
+}, {
+"base": "",
+"class": "DiscordActivitySecrets",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_secrets.gdns"
+}, {
+"base": "",
+"class": "DiscordActivityTimestamps",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_timestamps.gdns"
+}, {
+"base": "",
+"class": "DiscordCore",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_core.gdns"
+}, {
+"base": "",
+"class": "DiscordLobby",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_lobby.gdns"
+}, {
+"base": "",
+"class": "DiscordLobbyManager",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_lobby_manager.gdns"
+}, {
+"base": "",
+"class": "DiscordLobbyTransaction",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_lobby_transaction.gdns"
+}, {
+"base": "",
+"class": "DiscordOverlayManager",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_overlay_manager.gdns"
+}, {
+"base": "",
+"class": "DiscordPartySize",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_party_size.gdns"
+}, {
+"base": "",
+"class": "DiscordResult",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_result.gdns"
+}, {
+"base": "",
+"class": "DiscordUser",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_user.gdns"
+}, {
+"base": "Resource",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://addons/discord_game_sdk/example/lobby/game_state.gd"
+}, {
+"base": "Resource",
+"class": "Member",
+"language": "GDScript",
+"path": "res://addons/discord_game_sdk/example/lobby/member.gd"
+}, {
+"base": "Line2D",
+"class": "SectorBusLine",
+"language": "GDScript",
+"path": "res://SectorBusLine.gd"
+}, {
+"base": "Button",
+"class": "SectorNode",
+"language": "GDScript",
+"path": "res://SectorNode.gd"
+} ]
+_global_script_class_icons={
+"ChatMessage": "",
+"DiscordActivity": "",
+"DiscordActivityAssets": "",
+"DiscordActivityManager": "",
+"DiscordActivityParty": "",
+"DiscordActivitySecrets": "",
+"DiscordActivityTimestamps": "",
+"DiscordCore": "",
+"DiscordLobby": "",
+"DiscordLobbyManager": "",
+"DiscordLobbyTransaction": "",
+"DiscordOverlayManager": "",
+"DiscordPartySize": "",
+"DiscordResult": "",
+"DiscordUser": "",
+"GameState": "",
+"Member": "",
+"SectorBusLine": "",
+"SectorNode": ""
+}
+
 [application]
 
 config/name="Rootkit: Zero"
+run/main_scene="res://HomeScreen.tscn"
 boot_splash/image="res://assets/boot_splash.png"
 boot_splash/bg_color=Color( 0.0156863, 0, 0, 1 )
 config/icon="res://icon.png"
@@ -19,6 +138,14 @@ boot_splash/minimum_display_time=2
 [autoload]
 
 GameManager="*res://GameManager.gd"
+DiscordIpc="*res://scripts/discord_ipc.gd"
+Discord="*res://addons/discord_game_sdk/discord.gd"
+
+[discord_presence]
+
+first_button/label="Rootkit: Zero"
+first_button/url=""
+settings/change_time_per_screen=false
 
 [display]
 
@@ -28,6 +155,10 @@ window/size/test_width=1240
 window/size/test_height=700
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/discord_game_sdk/plugin.cfg" )
 
 [gui]
 
@@ -44,5 +175,5 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/filters/use_nearest_mipmap_filter=true
-environment/default_clear_color=Color( 0.0392157, 0.00392157, 0.0980392, 1 )
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

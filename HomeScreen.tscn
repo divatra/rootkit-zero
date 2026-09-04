@@ -176,6 +176,11 @@ margin_top = 12.0
 margin_right = 490.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 10 )
-text = "ZERO.exe Build 0.01 // Author: divatra"
+text = "ZERO.exe Build 0.01 // copyright (c) 2026 divatra"
 align = 2
 uppercase = true
+
+[connection signal="pressed" from="Menu Center/Menu/Button1" to="Menu Center" method="_on_Button1_pressed"]
+[connection signal="pressed" from="Menu Center/Menu/Button2" to="Menu Center" method="_on_Button2_pressed"]
+[connection signal="pressed" from="Menu Center/Menu/Button3" to="Menu Center" method="_on_Button3_pressed"]
+[connection signal="pressed" from="Menu Center/Menu/Button4" to="Menu Center" method="_on_Button4_pressed"]

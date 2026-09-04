@@ -33,3 +33,21 @@ func _on_button_hover(btn: Button, base_text: String):
 
 func _on_button_unhover(btn: Button, base_text: String):
 	btn.text = base_text
+
+
+
+
+func _on_Button1_pressed():
+	get_tree().change_scene("res://SectorMap.tscn")
+
+
+func _on_Button2_pressed():
+	pass # Replace with function body.
+
+
+func _on_Button3_pressed():
+	pass # Replace with function body.
+
+
+func _on_Button4_pressed():
+	pass # Replace with function body.

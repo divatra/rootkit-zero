@@ -1,12 +1,17 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/Iceland-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/void.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/backdrop.png" type="Texture" id=2]
 [ext_resource path="res://assets/new_styleboxflat.tres" type="StyleBox" id=3]
 [ext_resource path="res://assets/rootkitUI.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/buttonfont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/buttontheme.tres" type="StyleBox" id=6]
 [ext_resource path="res://SectorMap.gd" type="Script" id=7]
+[ext_resource path="res://SectorBusLine.gd" type="Script" id=8]
+[ext_resource path="res://SectorCamera.gd" type="Script" id=9]
+[ext_resource path="res://SectorNode.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/Fluctuation Lt.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://InfoPanel.gd" type="Script" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.627451 )
@@ -39,32 +44,51 @@ shadow_color = Color( 0.945098, 1, 0.996078, 0.6 )
 shadow_size = 2
 
 [sub_resource type="DynamicFont" id=7]
+size = 31
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.196078, 0.188235, 0.188235, 0.47451 )
 
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.121569, 0.113725, 0.113725, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.560784, 0.964706, 0.513726, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0.945098, 1, 0.996078, 0.6 )
+shadow_size = 2
+
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.196078, 0.188235, 0.188235, 0.47451 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 63
+font_data = ExtResource( 11 )
 
 [node name="SectorMap" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 2
 script = ExtResource( 7 )
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="CanvasBackground" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasBackground"]
+modulate = Color( 0.27451, 0.270588, 0.145098, 1 )
 margin_right = 3848.0
 margin_bottom = 2288.0
 rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
 texture = ExtResource( 2 )
-
-[node name="LinesContainer" type="Node2D" parent="."]
-position = Vector2( 616, 463 )
-
-[node name="NodesContainer" type="Control" parent="."]
-margin_top = 5.0
-margin_right = 1917.0
-margin_bottom = 1076.0
+expand = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -77,6 +101,7 @@ margin_left = -321.0
 margin_top = -183.0
 margin_bottom = 183.0
 custom_styles/panel = SubResource( 1 )
+script = ExtResource( 12 )
 
 [node name="TitleLabel" type="Label" parent="UI/InfoPanel"]
 anchor_right = 1.0
@@ -139,6 +164,7 @@ margin_top = -26.0
 margin_right = 231.0
 margin_bottom = 26.0
 custom_fonts/font = ExtResource( 5 )
+custom_styles/pressed = SubResource( 11 )
 custom_styles/normal = ExtResource( 6 )
 text = "< Return"
 
@@ -149,3 +175,93 @@ anchor_bottom = 1.0
 margin_top = -69.0
 margin_bottom = 7.0
 custom_styles/panel = SubResource( 9 )
+
+[node name="LoadingOverlay" type="Control" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/LoadingOverlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="UI/LoadingOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -373.0
+margin_top = -86.5
+margin_right = 373.0
+margin_bottom = 86.5
+custom_fonts/font = SubResource( 10 )
+text = "LOADING"
+align = 1
+valign = 1
+
+[node name="MapContainer" type="Node2D" parent="."]
+z_index = 7
+
+[node name="Lines" type="Node2D" parent="MapContainer"]
+
+[node name="1-1" type="Line2D" parent="MapContainer/Lines"]
+position = Vector2( 616, 463 )
+points = PoolVector2Array( 440, 243, 437, 42 )
+width = 4.0
+script = ExtResource( 8 )
+from_sector_path = NodePath("../../Sectors/USB")
+to_sector_path = NodePath("../../Sectors/UNALOC")
+
+[node name="1-2" type="Line2D" parent="MapContainer/Lines"]
+position = Vector2( 616, 463 )
+points = PoolVector2Array( 425, 242, 423, 42 )
+width = 4.0
+script = ExtResource( 8 )
+from_sector_path = NodePath("../../Sectors/USB")
+to_sector_path = NodePath("../../Sectors/UNALOC")
+
+[node name="1-3" type="Line2D" parent="MapContainer/Lines"]
+position = Vector2( 616, 463 )
+points = PoolVector2Array( 411, 244, 411, 171, 410, 42 )
+width = 4.0
+script = ExtResource( 8 )
+from_sector_path = NodePath("../../Sectors/USB")
+to_sector_path = NodePath("../../Sectors/UNALOC")
+
+[node name="Sectors" type="Node2D" parent="MapContainer"]
+z_index = 9
+
+[node name="USB" parent="MapContainer/Sectors" instance=ExtResource( 10 )]
+margin_left = 859.0
+margin_top = 711.0
+margin_right = 1209.0
+margin_bottom = 865.0
+threat_level = 1
+current_state = 4
+
+[node name="SectorNode3" parent="MapContainer/Sectors" instance=ExtResource( 10 )]
+margin_left = 644.0
+margin_top = -64.0
+margin_right = 1018.0
+margin_bottom = 98.0
+text = "ROOT-"
+sector_id = "ROOT_DIR"
+threat_level = 4
+current_state = 0
+
+[node name="UNALOC" parent="MapContainer/Sectors" instance=ExtResource( 10 )]
+margin_left = 856.0
+margin_top = 344.0
+margin_right = 1230.0
+margin_bottom = 506.0
+text = "UNALOC"
+sector_id = "UNALLOCATED_SPACE"
+
+[node name="SectorCamera" type="Camera2D" parent="."]
+position = Vector2( 959, 538 )
+current = true
+script = ExtResource( 9 )
+
+[connection signal="pressed" from="UI/Header/BackButton" to="." method="_on_BackButton_pressed"]

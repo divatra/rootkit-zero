@@ -1,28 +1,63 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://SectorNode.gd" type="Script" id=1]
-[ext_resource path="res://assets/node_pressed.png" type="Texture" id=2]
-[ext_resource path="res://assets/node.png" type="Texture" id=3]
 [ext_resource path="res://assets/rootkitUI.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 64
-outline_color = Color( 0, 0, 0, 1 )
+size = 35
 font_data = ExtResource( 4 )
 
-[node name="SectorNode" type="TextureButton"]
-self_modulate = Color( 0.568627, 0.568627, 0.568627, 1 )
-margin_right = 40.0
-margin_bottom = 40.0
-rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 2 )
-script = ExtResource( 1 )
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0862745, 0.0666667, 0.0117647, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color( 0.215686, 0.215686, 0.215686, 0.356863 )
+shadow_size = 2
+shadow_offset = Vector2( -1, 2 )
 
-[node name="NodeLabel" type="Label" parent="."]
-margin_right = 512.0
-margin_bottom = 512.0
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0862745, 0.0117647, 0.0117647, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color( 0.215686, 0.215686, 0.215686, 0.356863 )
+shadow_size = 2
+shadow_offset = Vector2( -1, 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0862745, 0.0117647, 0.0117647, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color( 0.215686, 0.215686, 0.215686, 0.356863 )
+shadow_size = 2
+shadow_offset = Vector2( -1, 2 )
+
+[node name="SectorNode" type="Button"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 375.0
+margin_bottom = 163.0
 custom_fonts/font = SubResource( 1 )
-text = "Text"
-align = 1
-valign = 1
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 2 )
+text = "USB_INPUT"
+script = ExtResource( 1 )
+current_state = 2
